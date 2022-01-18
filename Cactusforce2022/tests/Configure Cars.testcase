@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="2">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="70" title="Read Car Details from Excel">
+      <tags/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Car Details from Excel</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="CarData" variableScope="Test">
+          <cacheToken>C:/Users/16156/git/Cactusforce/Cactusforce2022/templates/TestData.xlsx;1642180506799</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="PriceRange"/>
+            <apiParam name="ExteriorColor"/>
+            <apiParam name="InteriorColor"/>
+            <apiParam name="LeadName"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Cars</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:D3</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="68">
+          <steps/>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="73" title="Read Lead Info from Excel">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Lead Info from Excel</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="LeadData" variableScope="Test">
+          <cacheToken>C:\\Users\\16156\\git\\Cactusforce\\Cactusforce2022\\templates\\TestData.xlsx;1642178273365</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Mobile"/>
+            <apiParam name="Email"/>
+            <apiParam name="Source"/>
+            <apiParam name="Company"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Leads</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:F2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="74"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Global)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">ECars</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="71" title="For Each: {CarData}=&gt;Car">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="CarData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">2</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Car</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="72">
+          <steps>
+            <caseCall testCaseId="d10eaac2-740c-4680-a13d-0c978e5f12ec" testCasePath="tests/Callables/Configure Car.testcase" testItemId="75">
+              <arguments>
+                <argument id="priceRange">
+                  <value class="variable">
+                    <path element="Car"/>
+                    <path element="PriceRange"/>
+                  </value>
+                </argument>
+                <argument id="exteriorColor">
+                  <value class="variable">
+                    <path element="Car"/>
+                    <path element="ExteriorColor"/>
+                  </value>
+                </argument>
+                <argument id="interiorColor">
+                  <value class="variable">
+                    <path element="Car"/>
+                    <path element="InteriorColor"/>
+                  </value>
+                </argument>
+                <argument id="leadName">
+                  <value class="variable">
+                    <path element="Car"/>
+                    <path element="LeadName"/>
+                  </value>
+                </argument>
+                <argument id="Company">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="Company"/>
+                  </value>
+                </argument>
+                <argument id="LastName">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="LastName"/>
+                  </value>
+                </argument>
+                <argument id="LeadSource">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="Source"/>
+                  </value>
+                </argument>
+                <argument id="Email">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="Email"/>
+                  </value>
+                </argument>
+                <argument id="MobilePhone">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="Mobile"/>
+                  </value>
+                </argument>
+                <argument id="FirstName">
+                  <value class="variable">
+                    <path element="LeadData"/>
+                    <path element="FirstName"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

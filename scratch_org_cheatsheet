@@ -1,0 +1,29 @@
+# List all orgs including scratch orgs
+sfdx force:org:list --all
+
+# List API limits for dev hub
+sfdx force:limits:api:display -u USERNAME
+
+# List config for sfdx
+sfdx config:list
+
+# Set defaultdevhubusername (Dev Hub to use for SFDX commands that accept targetdevhubusername) 
+# -g for global
+sfdx force:config:set defaultdevhubusername=username -g
+
+# Reset defaultdevhubusername/defaultusername
+sfdx force:config:set defaultdevhubusername= -g
+sfdx force:config:set defaultusername= -g
+
+# Set set defaultusername 
+sfdx force:config:set defaultusername=username -g
+
+# Auth Dev Hub for SFDX with defaults set
+# Specify URL add --instanceurl <url>
+sfdx auth:web:login --setdefaultdevhubusername --setalias MyAlias
+
+# Logout of Dev Hub
+ sfdx force:auth:logout -u USERNAME
+
+ # Org Info
+ sfdx force:org:display --targetusername my-scratch-org

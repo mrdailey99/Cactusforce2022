@@ -1,0 +1,11 @@
+node_modules
+ProvarHome/
+.pytest_cache/
+.provarCaches/
+.metadata/
+.chromeProfiles/
+.testCycles/
+package-lock.json
+**/*.zip
+**/ANT/Results*
+ecars

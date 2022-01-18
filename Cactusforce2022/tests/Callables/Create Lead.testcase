@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Lead=&gt;LeadId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Lead</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">LeadId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument argId="a4b5815f-5fd7-4af0-9791-f747c49d995a" id="LastName">
+          <value class="variable">
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument argId="4c20b410-6f9d-41ea-9041-b13846a92575" id="Company">
+          <value class="variable">
+            <path element="Company"/>
+          </value>
+        </argument>
+        <argument argId="dd0665c6-08cd-40f2-b3dc-cc401959bbc1" id="LeadSource">
+          <value class="variable">
+            <path element="LeadSource"/>
+          </value>
+        </argument>
+        <argument argId="bd6af47f-8509-4a33-b327-38818ff32bf3" id="Email">
+          <value class="variable">
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument argId="f11cdf96-c1f0-4347-a6e1-61ec9aae3e61" id="MobilePhone">
+          <value class="variable">
+            <path element="MobilePhone"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Lead</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LastName" name="LastName" title="LastName"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="Company" title="Company"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LeadSource" name="LeadSource" title="LeadSource"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Email" name="Email" title="Email"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=MobilePhone" name="MobilePhone" title="MobilePhone"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:a4b5815f-5fd7-4af0-9791-f747c49d995a" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LastName" name="LastName" title="LastName">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:4c20b410-6f9d-41ea-9041-b13846a92575" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="Company" title="Company">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:bd6af47f-8509-4a33-b327-38818ff32bf3" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Email" name="Email" title="Email">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:dd0665c6-08cd-40f2-b3dc-cc401959bbc1" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LeadSource" name="LeadSource" title="LeadSource">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:f11cdf96-c1f0-4347-a6e1-61ec9aae3e61" modelBinding="sf:ui:binding:object?object=Lead&amp;field=MobilePhone" name="MobilePhone" title="MobilePhone">
+      <summary/>
+    </param>
+  </params>
+  <outputParams>
+    <param name="LeadId" title="LeadId">
+      <summary>The name under which the resulting Object Id will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="LeadId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="LastName">
+      <value class="value" valueClass="string">McFly</value>
+    </argument>
+    <argument id="Company">
+      <value class="value" valueClass="string">DeLorean Testing</value>
+    </argument>
+    <argument id="Email">
+      <value class="value" valueClass="string">mctester@deloreantesting.com</value>
+    </argument>
+    <argument id="LeadSource">
+      <value class="value" valueClass="string">Email</value>
+    </argument>
+    <argument id="MobilePhone">
+      <value class="value" valueClass="string">555-867-5309</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="LeadId">
+      <name class="value" valueClass="string">LeadId</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>
