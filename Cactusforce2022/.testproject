@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="Scratch">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/Cactusforce2022/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -19,7 +19,7 @@
         <connection name="Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="d215f0ae-0af3-4ce5-bae3-0b66a96919d1" url="sf:environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true;authenticationType=OAUTH;callbackUrl={callbackUrl};accessToken={accessToken};refreshToken={refreshToken}"/>
+            <connectionUrl secureStorageNodeId="d215f0ae-0af3-4ce5-bae3-0b66a96919d1" url="sf:user=test-muowngqtul2i@example.com;password={password};securityToken={securityToken};environment=OTHER;apiLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;userLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;webBaseUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;lightningMode=true"/>
             <connectionUrl envName="Scratch" secureStorageNodeId="6c30c526-1ee9-4f02-b02e-be0a6ca9b572" url="sf:user=test-muowngqtul2i@example.com;password={password};securityToken={securityToken};environment=OTHER;apiLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;userLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;webBaseUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
           </connectionUrls>
         </connection>
@@ -43,6 +43,7 @@
       <summary>Fixed 1920x1080</summary>
     </browserConfiguration>
   </browserConfigurations>
+  <antPath>ANT</antPath>
   <browserApplications>
     <browserApplication connectionTypes="sf" name="Salesforce1">
       <properties>
