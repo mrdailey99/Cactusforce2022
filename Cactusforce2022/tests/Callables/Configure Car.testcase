@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6" registryId="d10eaac2-740c-4680-a13d-0c978e5f12ec" visibility="Internal">
+<testCase id="3" registryId="d10eaac2-740c-4680-a13d-0c978e5f12ec" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -52,13 +52,13 @@
       <clauses>
         <clause name="hidden" testItemId="104">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="89" title="Set Values: leadName">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="89" title="Set Values: LeadName">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
                     <namedValues mutable="Mutable">
                       <namedValue name="valuePath">
-                        <value class="value" valueClass="string">leadName</value>
+                        <value class="value" valueClass="string">LeadName</value>
                       </namedValue>
                       <namedValue name="value">
                         <value class="compound">
@@ -81,14 +81,14 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="71" title="SOQL Query: select Id from Lead where Name = '{leadName}'=&gt;LeadRows">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="71" title="SOQL Query: select Id from Lead where Name = '{LeadName}'=&gt;LeadRows">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
                       <value valueClass="string">select Id from Lead where Name = '</value>
                       <variable>
-                        <path element="leadName"/>
+                        <path element="LeadName"/>
                       </variable>
                       <value valueClass="string">'</value>
                     </parts>
@@ -291,7 +291,7 @@
                         </argument>
                         <argument id="param_range">
                           <value class="variable">
-                            <path element="priceRange"/>
+                            <path element="PriceRange"/>
                           </value>
                         </argument>
                       </arguments>
@@ -403,7 +403,7 @@
                         </argument>
                         <argument id="param_color">
                           <value class="variable">
-                            <path element="exteriorColor"/>
+                            <path element="ExteriorColor"/>
                           </value>
                         </argument>
                       </arguments>
@@ -515,7 +515,7 @@
                         </argument>
                         <argument id="param_color">
                           <value class="variable">
-                            <path element="interiorColor"/>
+                            <path element="InteriorColor"/>
                           </value>
                         </argument>
                       </arguments>
@@ -595,7 +595,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="39" title="Set the Lead to {leadName}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="39" title="Set the Lead to {LeadName}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:pageobject:field?field=lead&amp;pageId=pageobjects.carConfigurator"/>
@@ -605,7 +605,7 @@
                         </argument>
                         <argument id="value">
                           <value class="variable">
-                            <path element="leadName"/>
+                            <path element="LeadName"/>
                           </value>
                         </argument>
                         <argument id="blur">
@@ -627,7 +627,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Lead to {leadName}</value>
+                          <value class="value" valueClass="string">Set the Lead to {LeadName}</value>
                         </argument>
                         <argument id="autoRetry"/>
                       </arguments>
@@ -708,6 +708,70 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="126" title="Wait For: {PDFCreatedElement.fields.PDFCreated.visible}=&gt;{5}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="variable">
+                            <path element="PDFCreatedElement"/>
+                            <path element="fields"/>
+                            <path element="PDFCreated"/>
+                            <path element="visible"/>
+                          </value>
+                        </argument>
+                        <argument id="testAtStart">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="maxIterations">
+                          <value class="value" valueClass="decimal">5</value>
+                        </argument>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">5</value>
+                        </argument>
+                        <argument id="continueOnFailure">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="substeps" testItemId="127">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="136" title="Validate PDF Created Toast Message">
+                              <tags/>
+                              <arguments>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">PDFCreatedElement</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="fieldAssertions">
+                                  <value class="valueList" mutable="Mutable">
+                                    <uiFieldAssertion resultName="PDFCreated">
+                                      <fieldLocator uri="ui:pageobject:field?field=PDFCreated&amp;pageId=pageobjects.carConfigurator"/>
+                                      <attributeAssertions>
+                                        <uiAttributeAssertion attributeName="visible" comparisonType="EqualTo">
+                                          <value class="value" valueClass="boolean">true</value>
+                                        </uiAttributeAssertion>
+                                      </attributeAssertions>
+                                    </uiFieldAssertion>
+                                  </value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="columnAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="pageAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="beforeWait"/>
+                                <argument id="autoRetry"/>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
@@ -722,139 +786,6 @@
           </steps>
         </clause>
       </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="60" title="On leadView page">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <arguments>
-        <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin</value>
-        </argument>
-        <argument id="target">
-          <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.leadView"/>
-        </argument>
-        <argument id="navigate">
-          <value class="value" valueClass="string">Dont</value>
-        </argument>
-        <argument id="targetDescription">
-          <value class="value" valueClass="string">On leadView page</value>
-        </argument>
-        <argument id="windowSelection">
-          <value class="value" valueClass="string">Default</value>
-        </argument>
-        <argument id="windowSize">
-          <value class="value" valueClass="string">Default</value>
-        </argument>
-        <argument id="closeWindow"/>
-        <argument id="captureBefore">
-          <value class="value" valueClass="string">false</value>
-        </argument>
-        <argument id="captureAfter">
-          <value class="value" valueClass="string">false</value>
-        </argument>
-        <argument id="uiTargetUrl"/>
-      </arguments>
-      <clauses>
-        <clause name="substeps" testItemId="61">
-          <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="62" title="Validate PDF is added to Lead">
-              <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Values</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="notesAndAttachmentsTitle">
-                      <fieldLocator uri="ui:pageobject:field?field=notesAndAttachmentsTitle&amp;pageId=pageobjects.leadView"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                          <value class="value" valueClass="string">Your Car Order.pdf</value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
-                  </value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">true</value>
-                </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="81" title="Download the Notes And Attachments Title">
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:pageobject:field?field=notesAndAttachmentsTitle&amp;pageId=pageobjects.leadView"/>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Download the Notes And Attachments Title</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=download"/>
-                </argument>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">contents</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-                <argument id="resultFormat">
-                  <value class="value" valueClass="string">Parsed</value>
-                </argument>
-                <argument id="parseableContentType">
-                  <value class="value" valueClass="string">application/pdf</value>
-                </argument>
-                <argument id="fileLocation"/>
-                <argument id="fileContents"/>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="fileLocation" seq="10000" title="File Name/Location">
-                  <summary>The file to be uploaded.</summary>
-                  <type>
-                    <urlType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="fileContents" seq="10001" title="File Contents">
-                  <summary>The data to be uploaded.</summary>
-                  <type>
-                    <textType/>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-      <generatedParameters>
-        <apiParam group="target" name="uiTargetUrl" title="Web Page">
-          <type>
-            <textType/>
-          </type>
-        </apiParam>
-      </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="124" title="Validate PDF and Assert Contents">
       <arguments>
@@ -940,7 +871,7 @@
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="96" title="Validate PDF is added to Lead">
                               <arguments>
                                 <argument id="resultName">
-                                  <value class="value" valueClass="string">Values</value>
+                                  <value class="value" valueClass="string">YourCarOrderPDF</value>
                                 </argument>
                                 <argument id="resultScope">
                                   <value class="value" valueClass="string">Test</value>
@@ -966,7 +897,9 @@
                                 <argument id="pageAssertions">
                                   <value class="valueList" mutable="Mutable"/>
                                 </argument>
-                                <argument id="beforeWait"/>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                                </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
                             </apiCall>
@@ -1073,7 +1006,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="98" title="Assert: {contents.contentText} Contains {leadName}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="98" title="Assert: {contents.contentText} Contains {LeadName}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1086,7 +1019,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="leadName"/>
+                    <path element="LeadName"/>
                   </value>
                 </argument>
                 <argument id="caseSensitive">
@@ -1147,10 +1080,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="100" title="Assert: {contents.contentText} Contains {priceRange}">
-              <tags>
-                <string>disabled</string>
-              </tags>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="101" title="Assert: {contents.contentText} Contains {ExteriorColor}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1163,7 +1093,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="priceRange"/>
+                    <path element="ExteriorColor"/>
                   </value>
                 </argument>
                 <argument id="caseSensitive">
@@ -1187,7 +1117,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="101" title="Assert: {contents.contentText} Contains {exteriorColor}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="102" title="Assert: {contents.contentText} Contains {InteriorColor}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1200,44 +1130,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="exteriorColor"/>
-                  </value>
-                </argument>
-                <argument id="caseSensitive">
-                  <value class="value" valueClass="boolean">true</value>
-                </argument>
-                <argument id="numeric">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="retainDecimals">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="nullGreater">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="matchMultiLine">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="matchDotAll">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="failureMessage"/>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="102" title="Assert: {contents.contentText} Contains {interiorColor}">
-              <arguments>
-                <argument id="expectedValue">
-                  <value class="variable">
-                    <path element="contents"/>
-                    <path element="contentText"/>
-                  </value>
-                </argument>
-                <argument id="comparisonType">
-                  <value class="value" valueClass="string">Contains</value>
-                </argument>
-                <argument id="actualValue">
-                  <value class="variable">
-                    <path element="interiorColor"/>
+                    <path element="InteriorColor"/>
                   </value>
                 </argument>
                 <argument id="caseSensitive">
@@ -1267,7 +1160,7 @@
     </apiCall>
   </steps>
   <params>
-    <param name="priceRange" title="Price Range">
+    <param name="PriceRange" title="Price Range">
       <summary>The price range for the car to configure.</summary>
       <type>
         <textType>
@@ -1278,7 +1171,7 @@
         </textType>
       </type>
     </param>
-    <param name="exteriorColor" title="Exterior Color">
+    <param name="ExteriorColor" title="Exterior Color">
       <summary/>
       <type>
         <textType>
@@ -1289,7 +1182,7 @@
         </textType>
       </type>
     </param>
-    <param name="interiorColor" title="Interior Color">
+    <param name="InteriorColor" title="Interior Color">
       <summary/>
       <type>
         <textType>
@@ -1320,15 +1213,6 @@
     </param>
   </params>
   <args>
-    <argument id="priceRange">
-      <value class="value" valueClass="string">Medium</value>
-    </argument>
-    <argument id="exteriorColor">
-      <value class="value" valueClass="string">Red</value>
-    </argument>
-    <argument id="interiorColor">
-      <value class="value" valueClass="string">Black</value>
-    </argument>
     <argument id="Company">
       <value class="value" valueClass="string">Pro Testers</value>
     </argument>
@@ -1346,6 +1230,15 @@
     </argument>
     <argument id="FirstName">
       <value class="value" valueClass="string">Martha</value>
+    </argument>
+    <argument id="ExteriorColor">
+      <value class="value" valueClass="string">Red</value>
+    </argument>
+    <argument id="InteriorColor">
+      <value class="value" valueClass="string">Black</value>
+    </argument>
+    <argument id="PriceRange">
+      <value class="value" valueClass="string">Medium</value>
     </argument>
   </args>
 </testCase>

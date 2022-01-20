@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/Cactusforce2022/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,11 +8,23 @@
   <sourcePath>src</sourcePath>
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
-  <environments>
-    <environment name="Scratch">
+  <environments/>
+  <variables>
+    <testVariable name="chromeOptions">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+        </constraints>
+      </valueType>
       <summary/>
-    </environment>
-  </environments>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">--enable-notifications</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
   <connectionClasses>
     <connectionClass name="sf">
       <connections>
@@ -20,7 +32,16 @@
           <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="d215f0ae-0af3-4ce5-bae3-0b66a96919d1" url="sf:user=test-muowngqtul2i@example.com;password={password};securityToken={securityToken};environment=OTHER;apiLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;userLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;webBaseUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com;lightningMode=true"/>
-            <connectionUrl envName="Scratch" secureStorageNodeId="6c30c526-1ee9-4f02-b02e-be0a6ca9b572" url="sf:user=test-muowngqtul2i@example.com;password={password};securityToken={securityToken};environment=OTHER;apiLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;userLoginUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;webBaseUrl=https://platform-business-27712-dev-ed.cs68.my.salesforce.com/;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="ui">
+      <connections>
+        <connection id="13ef2342-4702-4514-befa-fe01ed0ee765" name="Pulsar">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=https://ecars-pwa-cf22.herokuapp.com/"/>
           </connectionUrls>
         </connection>
       </connections>

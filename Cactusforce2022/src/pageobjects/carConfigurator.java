@@ -44,7 +44,10 @@ public class carConfigurator {
 	public WebElement lead;
 	@ButtonType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[normalize-space(.)='PDF']")
-	public WebElement exportPDF;
+	public WebElement exportPDF;	
+	@TextType()
+	@FindBy(xpath = "//div[normalize-space(.)='PDF created']")
+	public WebElement PDFCreated;
 			
 	public void SelectPriceRange(String range) {
 		testLogger.info("Selecting range: " + range);		

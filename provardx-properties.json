@@ -1,42 +1,26 @@
 {
-    "connectionOverride": 
-    [
-      {"connection": "Admin", "username": "ProvarDX"}
-    ],
-    "provarHome":"/home/vsts/work/1/s/ProvarHome",
-    "projectPath":"/home/vsts/work/1/s/ProvarProject",
-    "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
-    "resultsPathDisposition":"Replace",
-    "smtpPath": "/home/vsts/work/1/s/ProvarProject/.smtp",
-    "testOutputLevel":"BASIC",
+    "provarHome":"C:/Program Files/Provar",
+    "projectPath":"c:/Users/16156/git/Cactusforce/Cactusforce2022",
+    "resultsPath":"c:/Users/16156/git/Cactusforce/Cactusforce2022/ANT/Results",
+    "smtpPath": "",
+    "resultsPathDisposition": "Increment", 
+    "testOutputLevel":"WARNING",
     "pluginOutputlevel":"WARNING",
-    "excludeCallable":false,
     "stopOnError":false,
     "lightningMode":true,
     "connectionRefreshType":"Reload",
     "metadata":{
-       "metadataLevel":"Reload",
-       "cachePath":"/home/vsts/work/1/s/.provarCaches"
+       "metadataLevel":"Reuse",
+       "cachePath":"../.provarCaches"
     },
-    "testprojectSecrets": "ProvarSecretsPassword", 
     "environment":{
-      "testEnvironment":"ProvarDX",
-      "webBrowser":"Chrome_Headless",
-      "webBrowserConfig":"Full Screen",
-      "webBrowserProviderName":"Desktop",
-      "webBrowserDeviceName":"Full Screen"
-    },
-    "testPlan":[
-       "Regression Plan"
-    ],
-    "testplanFeatures": [
-       {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
-       {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
-       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"}
-    ],
-    "email": {
-        "sendEmail": true,
-        "toRecipients": [ "michael.dailey@provartesting.com"],
-        "ccRecipients": [ "sedon98@gmail.com" ]
+       "testEnvironment":"",
+       "webBrowser":"Chrome",
+       "webBrowserConfig":"Full Screen",
+       "webBrowserProviderName":"Desktop",
+       "webBrowserDeviceName":"Full Screen"
     }
+    ,"testCase":[
+         "/Configure Cars.testcase"  
+     ]
  }
