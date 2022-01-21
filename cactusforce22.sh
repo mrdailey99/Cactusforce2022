@@ -22,7 +22,7 @@ git status
 git checkout main
 git status
 sfdx force:source:status
-## Run Apex/LWC Tests
+## Run Apex/LWC Tests ctrl+shift+p SFDX: Run Apex Tests (Run All Tests) RUn ALl Lightning Web Component Tests
 
 ## 4. Switch to deployment branch
 git checkout undeployed

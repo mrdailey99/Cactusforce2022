@@ -9,3 +9,4 @@ package-lock.json
 **/*.zip
 **/ANT/Results*
 ecars
+**/~*.xlsx

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3" registryId="d10eaac2-740c-4680-a13d-0c978e5f12ec" visibility="Internal">
+<testCase id="6" registryId="d10eaac2-740c-4680-a13d-0c978e5f12ec" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -672,7 +672,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
+                          <value class="value" valueClass="string">true</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
@@ -708,6 +708,45 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="138" title="Validate PDF Created Toast Message">
+                      <tags/>
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">PDFCreatedElement</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="PDFCreated">
+                              <fieldLocator uri="ui:pageobject:field?field=PDFCreated&amp;pageId=pageobjects.carConfigurator"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="visible" comparisonType="EqualTo">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <expectedExceptions>
+                        <expectedException comparisonType="Contains" title="Toast Message not Found">
+                          <assertionValue class="value" valueClass="string">Assertion Failed</assertionValue>
+                        </expectedException>
+                      </expectedExceptions>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="126" title="Wait For: {PDFCreatedElement.fields.PDFCreated.visible}=&gt;{5}">
                       <arguments>
                         <argument id="condition">
@@ -719,7 +758,7 @@
                           </value>
                         </argument>
                         <argument id="testAtStart">
-                          <value class="value" valueClass="boolean">false</value>
+                          <value class="value" valueClass="boolean">true</value>
                         </argument>
                         <argument id="maxIterations">
                           <value class="value" valueClass="decimal">5</value>
@@ -889,7 +928,7 @@
                                   </value>
                                 </argument>
                                 <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
+                                  <value class="value" valueClass="string">true</value>
                                 </argument>
                                 <argument id="columnAssertions">
                                   <value class="valueList" mutable="Mutable"/>
